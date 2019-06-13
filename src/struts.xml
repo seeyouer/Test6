@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
+
+    <constant name="struts.devMode" value="false"/>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+    <package name="default" namespace="/" extends="struts-default">
+        <default-action-ref name="index"/>
+        <action name="index">
+            <result>/index.jsp</result>
+        </action>
+
+        <action name="Userlog" class="action.UserAction" method="log">
+            <result name="success">/Student/main.jsp</result>
+            <result name="failed">/Login/failed.jsp</result>
+            <result name="input">/Login/login.jsp</result>
+        </action>
+        <action name="UserReg" class="action.UserAction" method="reg">
+            <result name="success">/Login/success.jsp</result>
+            <result name="failed">/Login/failed.jsp</result>
+            <result name="input">/Login/register.jsp</result>
+        </action>
+        <action name="SeekStudent" class="action.UserAction" method="seek">
+            <result name="success">/Student/lookStudent.jsp</result>
+            <result name="failed">/Student/failed.jsp</result>
+        </action>
+        <action name="FuzzySeekStudent" class="action.UserAction" method="fuzzySeek">
+            <result name="success">/Student/lookStudent.jsp</result>
+            <result name="failed">/Student/failed.jsp</result>
+        </action>
+        <action name="AddStudent" class="action.UserAction" method="add">
+            <result name="success">/Student/success.jsp</result>
+            <result name="failed">/Student/failed.jsp</result>
+            <result name="input">/Student/addStudent.jsp</result>
+        </action>
+        <action name="UpdateStudent" class="action.UserAction" method="upStu">
+            <result name="success">/Student/success.jsp</result>
+            <result name="failed">/Student/failed.jsp</result>
+        </action>
+        <action name="DeleteStudent" class="action.UserAction" method="delStu">
+            <result name="success">/Student/success.jsp</result>
+            <result name="failed">/Student/failed.jsp</result>
+        </action>
+    </package>
+</struts>
